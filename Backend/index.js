@@ -1,7 +1,7 @@
 const express = require('express');
 const { connectDB } = require('./db');  
 const bodyParser = require('body-parser');
-const routes = require('./routes'); 
+const routes = require('./router'); 
 
 const app = express();
 
@@ -9,9 +9,7 @@ require('dotenv').config();
 const port = process.env.PORT || 5000;  
 const url = process.env.db_url; 
 
-
 app.use(bodyParser.json());
-
 
 app.listen(port, async () => {
   try {
@@ -23,7 +21,7 @@ app.listen(port, async () => {
 });
 
 // Define CRUD routes
-app.use('/api', routes);  // Use the routes defined in routes.js (prefixed with '/api')
+app.use('/api', routes);  // Use the routes defined in router.js (prefixed witnpm h '/api')
 
 // Root endpoint (just a simple test endpoint)
 app.get('/', (req, res) => {
